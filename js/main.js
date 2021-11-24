@@ -1,17 +1,17 @@
 const container = document.getElementById('container');
 const divNumeri = document.getElementById('numeri');
+const urSolution = document.getElementById('tua-soluzione');
 const arrNumeri = [];
 const urNumeri = [];
 const soluzione = [];
 
 numeriRandom();
 
-console.log(arrNumeri , 'questi sono i numeri mostrati');
 // fa scomparire i numeri della soluzione dopo tot secondi
 const num = arrNumeri.forEach(nume => {
     const clock = setInterval(function(){
         divNumeri.classList.add('display-none')
-    },5000);
+    },30000);
     divNumeri.innerHTML += nume + ' '; 
 });
 
@@ -31,10 +31,19 @@ const clockUno = setTimeout(function(){
         }
     }
     
+    if (soluzione.length == 5){
+        urSolution.innerHTML = 'Complimenti! hai indovinato tutti i numeri';
+    } else if (soluzione.length == 0) {
+        urSolution.innerHTML = 'Caspita :( hai sbagliato tutti i numeri';
+    } else {
+        urSolution.innerHTML = 'Hai indovinato ' + soluzione.length +  ' numeri';
+    }
 console.log(urNumeri, 'questo e ur Numeri');
 console.log(soluzione,'questo e la tua soluzione');
 
-},5001)
+console.log('ne hai azzeccate', soluzione.length);
+
+},30001)
 
 
 function numeriRandom() {
