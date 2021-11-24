@@ -1,6 +1,8 @@
 const container = document.getElementById('container');
 const divNumeri = document.getElementById('numeri');
 const urSolution = document.getElementById('tua-soluzione');
+const solution = document.getElementById('soluzione');
+const divSolution = document.getElementById('div-soluzione');
 const arrNumeri = [];
 const urNumeri = [];
 const soluzione = [];
@@ -11,7 +13,7 @@ numeriRandom();
 const num = arrNumeri.forEach(nume => {
     const clock = setInterval(function(){
         divNumeri.classList.add('display-none')
-    },30000);
+    },3000);
     divNumeri.innerHTML += nume + ' '; 
 });
 
@@ -38,12 +40,20 @@ const clockUno = setTimeout(function(){
     } else {
         urSolution.innerHTML = 'Hai indovinato ' + soluzione.length +  ' numeri';
     }
+
+
+    for ( let i = 0 ; i < arrNumeri.length; i++){
+        solution.innerHTML += arrNumeri[i] + ' ';
+    }
+
+
+console.log(arrNumeri, 'questi sono i numeri iniziali');
 console.log(urNumeri, 'questo e ur Numeri');
 console.log(soluzione,'questo e la tua soluzione');
 
 console.log('ne hai azzeccate', soluzione.length);
 
-},30001)
+},3001)
 
 
 function numeriRandom() {
